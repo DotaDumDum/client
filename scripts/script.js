@@ -1,4 +1,5 @@
 $(document).ready(() => {
+    $('#signOutButton').hide()
     $.ajax({
         type: 'GET',
         url: 'http://localhost:3000/heroes'
@@ -20,4 +21,9 @@ $(document).ready(() => {
         })
     })
     .fail(console.log)
+
+    $('#mood-form').on('submit', (e) => {
+        e.preventDefault()
+        const sentence = $('#mood').val()
+    })
 })

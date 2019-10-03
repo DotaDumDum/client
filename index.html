@@ -14,44 +14,47 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script src="https://apis.google.com/js/platform.js" async defer></script>
     <title>Dota Dum Dum</title>
+    <style>
+        .bg-black {
+            background-color: black
+        }
+    </style>
 </head>
-<body>
-
-    <div class="jumbotron text-center" style="margin-bottom:0">
-        <h1>Welcome to Dota Dum Dum</h1>
-        <br>
-        <p class="h4">Dota Wiki For Dummies</p>
-    </div>
-
+<body class="bg-black">
     <div class="pos-f-t">
-            <div class="collapse" id="navbarToggleExternalContent">
-                <div class="bg-dark p-4">
-                    <button class="btn-primary" id="show">Link</button>
-                    <button class="btn-primary" id="show_starred">Link</button>
-                    <button class="btn-primary" id="hide">Link</button>
-                </div>
+        <div class="collapse" id="navbarToggleExternalContent">
+            <div class="bg-light p-4">
+                <button class="btn btn-dark" id="show">Link</button>
+                <button class="btn btn-dark" id="show_starred">Link</button>
+                <button class="btn btn-dark" id="hide">Link</button>
             </div>
-            <nav class="navbar navbar-dark bg-dark">
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+        </div>
+        <nav class="navbar navbar-dark bg-light">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5IlNrE022r5fVK87sVfnvhVGGEVmFBxffwOMJL3Cfpcz_1W21" style="max-height: 50px;">
+                <button class="navbar-toggler bg-black" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <span class="col-10"></span>
-                <div class="g-signin2" data-onsuccess="onSignIn" id="signInButton"></div>
-                <button class="btn btn-primary" onclick="signOut();" id="signOutButton">Sign out</button>
+                <div class="navbar-right">
+                    <div class="g-signin2" data-onsuccess="onSignIn" id="signInButton"></div>
+                    <button class="btn btn-primary" onclick="signOut();" id="signOutButton">Sign out</button>
+                </div>
             </nav>
         </div>
 
     <div class="container justify-content-center" style="margin-top:30px">
         <div class="row">
             <div>
-                <form class="form-inline" id="mood-form">
-                    <label class="mr-sm-2">How are you feeling ?</label>
-                    <input type="mood" class="form-control mb-2 mr-sm-2" id="mood">
-                    <button type="submit" class="btn btn-primary mb-2" id="submit-button">Submit</button>
-                    <br>
+                <form class="form-inline p-4 card" id="mood-form">
+                    <div class="card-body">
+                        <input type="mood" class="form-control mb-2 mr-sm-2" id="mood" placeholder="How are you feeling?">
+                        <button type="submit" class="btn btn-primary mb-2" id="submit-button">Submit</button>
+                        <br>
+                    </div>
                 </form>
             </div>
-            <div class="card-columns m-5 overflow-auto" style=" max-height: 500px" id="heroes">
+            <!-- <ol id="heroes" class="list-unstyled list-group" style="max-height: 600px;margin-bottom: 10px;overflow:scroll;-webkit-overflow-scrolling: touch;"></! --> -->
+            <!-- <div class="card-columns m-5" id="heroes"> -->
             </div>
             <div class="col-6"></div>
         </div>
