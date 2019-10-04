@@ -124,7 +124,7 @@ $(document).ready(() => {
             .done(data => {
                 const url = data.url
                 $('#video').append(`
-                <iframe src="${url}"></iframe>`)
+                <iframe src="${url}" allowfullscreen></iframe>`)
             })
             .fail(console.log)
         })
