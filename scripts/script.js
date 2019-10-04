@@ -1,6 +1,7 @@
 const url = `http://localhost:3000`
 
 $(document).ready(() => {
+    $('.jumbotron').hide()
     $('#signOutButton').hide()
     $.ajax({
         type: 'GET',
@@ -34,7 +35,8 @@ $(document).ready(() => {
                 $(`#pic${index}`).append(`<img src="https://cdnb.artstation.com/p/assets/images/images/012/438/899/large/alexandra-bisson-002-agi.jpg?1534811827" style="max-height:60px;border-radius:100%" class="float-right">`)
             }
         })
-        .fail(console.log)
+    })
+    .fail(console.log)
 
 
     $('#registerBtn').click(function (event) {
@@ -73,9 +75,9 @@ $(document).ready(() => {
                 $(`#errorLogin`).html(msg);
             })
     })
-    .fail(console.log)
 
     $('#mood-form').on('submit', (e) => {
+        $('.jumbotron').show()
         e.preventDefault()
         const data = {
             text: $('#mood').val()
@@ -116,7 +118,4 @@ $(document).ready(() => {
 
 const buttonClick = (button) => {
     let name = button.value
-    console.log(name)
 }
-
-})

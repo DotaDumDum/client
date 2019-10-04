@@ -6,14 +6,13 @@ function onSignIn(googleUser) {
         type: 'POST',
         url: `${url}/user/googleLogin`,
         data: {
-            id: id_token
+            id_token
         },
         dataType: 'json'
     })
         .done(token => {
             console.log(token);
             localStorage.setItem('token', token)
-            login()
         })
         .fail(console.log)
 }
