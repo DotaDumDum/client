@@ -23,10 +23,11 @@
             margin: 0 auto;
         }
         .bg {
-            background-image: url(https://i.pinimg.com/originals/cc/6b/4a/cc6b4a7f5311230981426b21eef2e993.jpg);
-            background-size: cover;
-            background-repeat: no-repeat;
+            background-image: url(https://www.wallpaperup.com/uploads/wallpapers/2014/03/04/285251/ba14da31e2ebbc2110ca914c5629d945.jpg);
+            /* background-color: #292626; */
             height: 100%;
+            background-size: contain;
+            background-position-y: center;
         }
     </style>
 </head>
@@ -52,20 +53,20 @@
         </nav>
     </div>
 
-    <div class="container justify-content-center" id="list" style="margin-top:30px">
+    <div class="container justify-content-center" id="list" style="margin-top:30px;">
         <div class="row">
             <div>
-                <form class="form-inline p-4 card" id="mood-form">
+                <form class="form-inline p-4 card text-white bg-secondary" id="mood-form">
                     <div class="card-body">
                         <input type="mood" class="form-control mb-2 mr-sm-2" id="mood" placeholder="How are you feeling?">
-                        <button type="submit" class="btn btn-primary mb-2" id="submit-button" data-toggle="modal" data-target="#recommendedModal">Submit</button>
+                        <button type="submit" class="btn btn-primary mb-2 btn-danger" id="submit-button" data-toggle="modal" data-target="#recommendedModal">Submit</button>
                         <br>
                     </div>
                 </form>
             </div>
             <div class="card-columns m-5" id="heroes">
             </div>
-            <div class="jumbotron " id="recommendedHero""></div>
+            <div class="jumbotron text-white bg-secondary" id="recommendedHero" style="min-width: 30vw"></div>
             <div class="col-6"></div>
         </div>
     </div>
