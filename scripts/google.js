@@ -4,14 +4,18 @@ function onSignIn(googleUser) {
     const id_token = googleUser.getAuthResponse().id_token
     $.ajax({
         type: 'POST',
-        url: 'http://localhost:3000',
+        url: `${url}/user/googleLogin`,
         data: {
             id: id_token
         },
         dataType: 'json'
     })
-    .done(console.log)
-    .fail(console.log)
+        .done(token => {
+            console.log(token);
+            localStorage.setItem('token', token)
+            login()
+        })
+        .fail(console.log)
 }
 
 function signOut() {
@@ -19,6 +23,9 @@ function signOut() {
     $('#signOutButton').hide()
     var auth2 = gapi.auth2.getAuthInstance()
     auth2.signOut()
-    .then(console.log)
-    .catch(console.log)
+        .then(() => {
+            console.log('User signed out');
+            localStorage.removeItem('token');
+        })
+        .catch(console.log)
 }

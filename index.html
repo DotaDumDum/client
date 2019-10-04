@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="google-signin-client_id" content="351010311828-11to195r2f1cik3pdfftd4b8guh5k467.apps.googleusercontent.com">
+    <meta name="google-signin-client_id"
+        content="351010311828-11to195r2f1cik3pdfftd4b8guh5k467.apps.googleusercontent.com">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <script
-        src="https://code.jquery.com/jquery-3.4.1.js"
-        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
-        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script src="https://apis.google.com/js/platform.js" async defer></script>
@@ -45,6 +45,17 @@
                 </div>
             </nav>
         </div>
+        <nav class="navbar navbar-dark bg-dark">
+            <button class="navbar-toggler" type="button" data-toggle="collapse"
+                data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent"
+                aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <span class="col-10"></span>
+            <div class="g-signin2" data-onsuccess="onSignIn" id="signInButton"></div>
+            <button class="btn btn-primary" onclick="signOut();" id="signOutButton">Sign out</button>
+        </nav>
+    </div>
 
     <div class="container justify-content-center" id="list" style="margin-top:30px">
         <div class="row">
@@ -67,5 +78,6 @@
 
     <script src="scripts/google.js"></script>
     <script src="scripts/script.js"></script>
-    </body>
+</body>
+
 </html>
