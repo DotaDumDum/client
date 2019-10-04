@@ -9,7 +9,6 @@ $(document).ready(() => {
     })
     .done(heroes => {
         heroes.forEach((hero,index) => {
-            console.log(hero)
             $('#heroes').append(`
             <div class="card" style="width: 22rem;">
                 <div class="card-body" id="hero${index}">
@@ -100,6 +99,8 @@ $(document).ready(() => {
                         </div>
                         <div class="col-sm-4" id="pics">
                         </div>
+                        <div id="video">
+                        </div>
                     </div>
             `)
             if (object.primary_attr === "str") {
@@ -111,6 +112,21 @@ $(document).ready(() => {
             else {
                 $(`#pics`).append(`<img src="https://cdnb.artstation.com/p/assets/images/images/012/438/899/large/alexandra-bisson-002-agi.jpg?1534811827" style="max-height:60px;border-radius:100%" class="float-right">`)
             }
+            const name = object.localized_name
+            $.ajax({
+                type: 'POST',
+                url: 'http://localhost:3000/youtube/video',
+                data: {
+                    hero: name
+                },
+                dataType: 'json'
+            })
+            .done(data => {
+                const url = data.url
+                $('#video').append(`
+                <iframe src="${url}"></iframe>`)
+            })
+            .fail(console.log)
         })
         .fail(console.log)
     })
