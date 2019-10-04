@@ -18,6 +18,10 @@
         .bg-black {
             background-color: black
         }
+        .jumbotron {
+            max-width: 500px;
+            margin: 0 auto;
+        }
     </style>
 </head>
 <body class="bg-black">
@@ -42,23 +46,25 @@
             </nav>
         </div>
 
-    <div class="container justify-content-center" style="margin-top:30px">
+    <div class="container justify-content-center" id="list" style="margin-top:30px">
         <div class="row">
             <div>
                 <form class="form-inline p-4 card" id="mood-form">
                     <div class="card-body">
                         <input type="mood" class="form-control mb-2 mr-sm-2" id="mood" placeholder="How are you feeling?">
-                        <button type="submit" class="btn btn-primary mb-2" id="submit-button">Submit</button>
+                        <button type="submit" class="btn btn-primary mb-2" id="submit-button" data-toggle="modal" data-target="#recommendedModal">Submit</button>
                         <br>
                     </div>
                 </form>
             </div>
-            <!-- <ol id="heroes" class="list-unstyled list-group" style="max-height: 600px;margin-bottom: 10px;overflow:scroll;-webkit-overflow-scrolling: touch;"></! --> -->
-            <!-- <div class="card-columns m-5" id="heroes"> -->
+            <div class="card-columns m-5" id="heroes">
             </div>
+            <div class="jumbotron " id="recommendedHero""></div>
             <div class="col-6"></div>
         </div>
     </div>
+
+
     <script src="scripts/google.js"></script>
     <script src="scripts/script.js"></script>
     </body>
