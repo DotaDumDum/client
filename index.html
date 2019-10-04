@@ -14,59 +14,162 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script src="https://apis.google.com/js/platform.js" async defer></script>
     <title>Dota Dum Dum</title>
-    <style>
-        .bg-black {
-            background-color: black
-        }
-        .jumbotron {
-            max-width: 500px;
-            margin: 0 auto;
-        }
-    </style>
 </head>
-<body class="bg-black">
-    <div class="pos-f-t">
-        <div class="collapse" id="navbarToggleExternalContent">
-            <div class="bg-light p-4">
-                <button class="btn btn-dark" id="show">Link</button>
-                <button class="btn btn-dark" id="show_starred">Link</button>
-                <button class="btn btn-dark" id="hide">Link</button>
+
+<body>
+
+    <!-- LOGIN -->
+    <div>
+        <div class="container" id="loginForm">
+
+            <div class="row">
+                <div class="col-sm-9 col-md-7 col-lg-5 mx-auto ">
+                    <div class="card card-signin my-5" style="background-color: rgba(255, 255, 255, 0.8)">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Sign In</h5>
+
+                            <form id="loginForm" class="form-signin">
+
+                                <div id="errorLogin" class="text-danger text-center mb-2">
+
+                                </div>
+
+                                <div class="form-label-group">
+                                    <input type="text" id="email" class="form-control" name="email"
+                                        placeholder="Email address">
+                                </div>
+
+                                <div class="form-label-group mt-2">
+                                    <input type="password" id="password" class="form-control" name="password"
+                                        placeholder="Password">
+                                </div>
+
+                                <div id="my-signin2" class="mt-2"></div>
+                                <script>
+                                    function onSuccess(googleUser) {
+                                        console.log('Logged in as: ' + googleUser.getBasicProfile().getName());
+                                    }
+                                    function onFailure(error) {
+                                        console.log(error);
+                                    }
+                                    function renderButton() {
+                                        gapi.signin2.render('my-signin2', {
+                                            'scope': 'profile email',
+                                            'width': 240,
+                                            'height': 50,
+                                            'longtitle': true,
+                                            'theme': 'dark',
+                                            'onsuccess': onSuccess,
+                                            'onfailure': onFailure
+                                        });
+                                    }
+                                </script>
+
+                                <script src="https://apis.google.com/js/platform.js?onload=renderButton" async
+                                    defer></script>
+
+                        </div>
+                        <p id="toRegisterFrom" class="text-primary btn btn-link">i don't have account</p>
+
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
-        <nav class="navbar navbar-dark bg-light">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5IlNrE022r5fVK87sVfnvhVGGEVmFBxffwOMJL3Cfpcz_1W21" style="max-height: 50px;">
-            <button class="navbar-toggler bg-black" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+    </div>
+    </div>
+
+
+
+    <!-- REGISTER -->
+    <div>
+        <div class="container" id="loginForm">
+
+            <div class="row">
+                <div class="col-sm-9 col-md-7 col-lg-5 mx-auto ">
+                    <div class="card card-signin my-5" style="background-color: rgba(255, 255, 255, 0.8)">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">REGISTER</h5>
+
+                            <form id="loginForm" class="form-signin">
+
+                                <div id="errorLogin" class="text-danger text-center mb-2">
+
+                                </div>
+
+                                <div class="form-label-group">
+                                    <input type="text" id="text" class="form-control" name="username"
+                                        placeholder="Username">
+                                </div>
+
+                                <div class="form-label-group mt-2">
+                                    <input type="text" id="text" class="form-control" name="email"
+                                        placeholder="Email address">
+                                </div>
+
+                                <div class="form-label-group mt-2">
+                                    <input type="password" id="password" class="form-control" name="password"
+                                        placeholder="Password">
+                                </div>
+                                <button id="loginbtn" class="btn btn-lg btn-primary btn-block text-uppercase mt-2"
+                                    type="submit">Register</button>
+                        </div>
+                        <p id="toRegisterFrom" class="text-primary btn btn-link">i already have account</p>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+
+
+
+    <div class="jumbotron text-center" style="margin-bottom:0">
+        <h1>Welcome to Dota Dum Dum</h1>
+        <br>
+        <p class="h4">Dota Wiki For Dummies</p>
+    </div>
+
+    <div class="pos-f-t">
+        <div class="collapse" id="navbarToggleExternalContent">
+            <div class="bg-dark p-4">
+                <button class="btn-primary" id="show">Link</button>
+                <button class="btn-primary" id="show_starred">Link</button>
+                <button class="btn-primary" id="hide">Link</button>
+            </div>
+        </div>
+        <nav class="navbar navbar-dark bg-dark">
+            <button class="navbar-toggler" type="button" data-toggle="collapse"
+                data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent"
+                aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <span class="col-10"></span>
-            <div class="navbar-right">
-                <div class="g-signin2" data-onsuccess="onSignIn" id="signInButton"></div>
-                <button class="btn btn-primary" onclick="signOut();" id="signOutButton">Sign out</button>
-            </div>
+            <div class="g-signin2" data-onsuccess="onSignIn" id="signInButton"></div>
+            <button class="btn btn-primary" onclick="signOut();" id="signOutButton">Sign out</button>
         </nav>
     </div>
 
-    <div class="container justify-content-center" id="list" style="margin-top:30px">
+    <div class="container justify-content-center" style="margin-top:30px">
         <div class="row">
             <div>
-                <form class="form-inline p-4 card" id="mood-form">
-                    <div class="card-body">
-                        <input type="mood" class="form-control mb-2 mr-sm-2" id="mood" placeholder="How are you feeling?">
-                        <button type="submit" class="btn btn-primary mb-2" id="submit-button" data-toggle="modal" data-target="#recommendedModal">Submit</button>
-                        <br>
-                    </div>
+                <form class="form-inline" id="mood-form">
+                    <label class="mr-sm-2">How are you feeling ?</label>
+                    <input type="mood" class="form-control mb-2 mr-sm-2" id="mood">
+                    <button type="submit" class="btn btn-primary mb-2" id="submit-button">Submit</button>
+                    <br>
                 </form>
             </div>
-            <div class="card-columns m-5" id="heroes">
+            <div class="card-columns m-5 overflow-auto" style=" max-height: 500px" id="heroes">
             </div>
-            <div class="jumbotron " id="recommendedHero""></div>
             <div class="col-6"></div>
         </div>
     </div>
-
-
-    <script src="scripts/script.js"></script>
     <script src="scripts/google.js"></script>
+    <script src="scripts/script.js"></script>
 </body>
 
 </html>
